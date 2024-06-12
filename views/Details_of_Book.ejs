@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= book ? book.title : 'Book Not Found' %></title>
+    <link rel="stylesheet" href="/static/bookDetails.css">
+</head>
+<body>
+    <div class="container">
+        <% if (book) { %>
+            <h1><%= book.title %> (<%= book.publishedDate %>)</h1>
+            <p><strong>Released:</strong> <%= book.publishedDate %></p>
+            <p><strong>Description:</strong> <%= book.description %></p>
+            <p><strong>Authors:</strong> <%= book.authors.join(', ') %></p>
+            <p><strong>Pages Count:</strong> <%= book.pageCount %></p>
+            <p><strong>Rating:</strong> <%= book.averageRating %></p>
+        <% } else { %>
+            <h1>Book Not Found</h1>
+            <p>Sorry, we couldn't find the book you were looking for. Please try again with a different title.</p>
+        <% } %>
+    </div>
+</body>
+</html>
